@@ -1,8 +1,33 @@
-
-# Playwright
+# Node.js dependencies
 node_modules/
+
+# Playwright test results and reports
 /test-results/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
 /tests-examples/
+
+# TypeScript output
+dist/
+*.tsbuildinfo
+
+# Logs
+*.log
+logs/
+
+# Playwright test artifacts
+screenshots/
+videos/
+traces/
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# MacOS
+.DS_Store
+
+# Local environment files
+.env
+.env.local
