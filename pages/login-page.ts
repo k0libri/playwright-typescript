@@ -1,11 +1,6 @@
-import { Page } from '@playwright/test';
+import { BasePage } from '../core/BasePage';
 
-export class LoginPage {
-  private page: Page;
-
-  constructor(page: Page) {
-    this.page = page;
-  }
+export class LoginPage extends BasePage {
 
   usernameInput = '[data-test="username"]';
   passwordInput = '[data-test="password"]';
