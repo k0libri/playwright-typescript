@@ -1,7 +1,7 @@
+import { IPage } from '../core/IPage';
 import { BasePage } from '../core/BasePage';
 
-export class LoginPage extends BasePage {
-
+export class LoginPage extends BasePage implements IPage {
   usernameInput = '[data-test="username"]';
   passwordInput = '[data-test="password"]';
   loginButton = '[data-test="login-button"]';
