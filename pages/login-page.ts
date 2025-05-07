@@ -1,6 +1,8 @@
 import { IPage } from '../core/IPage';
 import { BasePage } from '../core/BasePage';
+import { UserRoles } from '../enums/UserRoles';
 
+type UserCredentials = UserRoles | 'guest';
 export class LoginPage extends BasePage implements IPage {
   usernameInput = '[data-test="username"]';
   passwordInput = '[data-test="password"]';
@@ -11,7 +13,7 @@ export class LoginPage extends BasePage implements IPage {
     await this.page.goto('https://www.saucedemo.com/');
   }
 
-  async login(username: string, password: string) {
+  async login(username: UserCredentials, password: string) {
     await this.page.fill(this.usernameInput, username);
     await this.page.fill(this.passwordInput, password);
     await this.page.click(this.loginButton);

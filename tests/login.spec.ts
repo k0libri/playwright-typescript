@@ -28,4 +28,10 @@ test.describe('login', () => {
     const errorMessage = await loginPage.getErrorMessage();
     expect(errorMessage).toBe('Epic sadface: Username and password do not match any user in this service');
   });
+
+  test('guest user cannot log in', async () => {
+    await loginPage.login('guest', 'secret_sauce');
+    const errorMessage = await loginPage.getErrorMessage();
+    expect(errorMessage).toBe('Epic sadface: Username and password do not match any user in this service');
+  });
 });
