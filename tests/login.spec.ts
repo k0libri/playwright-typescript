@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../pages/login-page';
+import { UserRoles } from '../enums/UserRoles';
 
 test.describe('login', () => {
   let loginPage: LoginPage;
@@ -18,12 +19,12 @@ test.describe('login', () => {
   });
 
   test('the user can log in with valid credentials', async ({ page }) => {
-    await loginPage.login('standard_user', 'secret_sauce');
+    await loginPage.login(UserRoles.STANDARD_USER, 'secret_sauce');
     await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
   });
 
   test('the user cannot log in with invalid credentials', async () => {
-    await loginPage.login('invalid', 'invalid');
+    await loginPage.login(UserRoles.STANDARD_USER, 'invalid');
     const errorMessage = await loginPage.getErrorMessage();
     expect(errorMessage).toBe('Epic sadface: Username and password do not match any user in this service');
   });
